@@ -9,15 +9,15 @@ export default function Faq() {
     },
     {
       title: 'What are Genesis Conquerors? ',
-      content: 'Genesis Conquerors are the main characters and very first gaming assets of Galactic Kingdom. There will be 5 races with 5 different levels of rarity. Everything in Galactic Kingdom is built around them. There will be 10000 Genesis Conquerors in total minted on Solana.'
+      content: 'Genesis Conquerors are the main characters and very first gaming assets of Galactic Kingdom. There will be 5 races with 5 different levels of rarity. Everything in Galactic Kingdom is built around them. There will be 10000 Genesis Conquerors in total minted.'
     },
     {
       title: 'Pre-sale, Whitelist, Public sale? ',
-      content: 'Galactic Kingdom: Genesis Conquerors pre-sale started silently in December 2023 with an exclusive closed round. Public pre-sales in partnership with various DAOs are ongoing. Whitelist Sale and Public Sale dates are planned for the end of February.'
+      content: 'TBD.'
     },
     {
       title: 'What are the pre-sale benefits?',
-      content: 'Pre-sale will have the opportunity to get Genesis Conquerors at the lowest price, slightly inferior to the WLs and the Public Sale'
+      content: 'TBD'
     },
     {
       title: "What are the Genesis Conquerors holder's benefits?",
@@ -49,14 +49,14 @@ export default function Faq() {
   ]
   return (
     <div className='w-full flex items-center justify-center bg-[#F0EBE5] relative'>
-      <div className='absolute transform -translate-y-1/3 left-0 top-0 scale-150'>
+      <div className='absolute top-0 left-0 transform scale-150 -translate-y-1/3'>
         <img
           src='/right_decor.png'
           alt='left decoration'
           className='object-cover object-center'
         />
       </div>
-      <div className='absolute transform -translate-y-1/3 right-0 top-0 scale-150'>
+      <div className='absolute top-0 right-0 transform scale-150 -translate-y-1/3'>
         <img
           src='/left_decor.png'
           alt='right decoration'
@@ -64,20 +64,20 @@ export default function Faq() {
         />
       </div>
       <div className='w-full max-w-[1140px] flex flex-col items-center gap-12'>
-        <div className='text-center text-dark-text font-Josefin font-bold text-5xl'>
+        <div className='text-5xl font-bold text-center text-dark-text font-Josefin'>
           FAQ
         </div>
-        <div className='flex flex-col sm:flex-row gap-6 w-full px-4 z-20'>
-          <div className='flex flex-col items-center gap-6 w-full'>
+        <div className='z-20 flex flex-col w-full gap-6 px-4 sm:flex-row'>
+          <div className='flex flex-col items-center w-full gap-6'>
             {leftFaq.map((item, index) => (
-              <div className='w-full rounded-md overflow-hidden'>
+              <div className='w-full overflow-hidden rounded-md'>
                 <FaqComp title={item.title} content={item.content} key={index} />
               </div>
             ))}
           </div>
-          <div className='flex flex-col items-center gap-6 w-full'>
+          <div className='flex flex-col items-center w-full gap-6'>
             {rightFaq.map((item, index) => (
-              <div className='w-full rounded-md overflow-hidden'>
+              <div className='w-full overflow-hidden rounded-md'>
                 <FaqComp title={item.title} content={item.content} key={index} />
               </div>
             ))}
