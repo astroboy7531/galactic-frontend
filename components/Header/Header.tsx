@@ -84,7 +84,7 @@ export default function Header() {
                 ref={whiteDropDown}
               >
                 <Link className='w-full text-white border-b-2 border-white cursor-pointer hover:text-blue-500' href='https://galactickingdom.aflip.in/87d7fb8696.html' target='_blank'>Flip Book</Link>
-                <Link className='text-white cursor-pointer hover:text-blue-500' href='https://gk-docusaurus.vercel.app' target='_blank'>Docusaurus</Link>
+                <Link className='text-white cursor-pointer hover:text-blue-500' href='https://docs.galactickingdom.io/' target='_blank'>Docusaurus</Link>
               </div> : <></>}
           </div>
 
@@ -106,7 +106,7 @@ export default function Header() {
               Get Ready
             </div>
             <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://galactickingdom.aflip.in/87d7fb8696.html' onClick={() => setMenuState(false)}>AllBlue Paper - flipbook</Link>
-            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://gk-docusaurus.vercel.app' onClick={() => setMenuState(false)}>AllBlue Paper - docusaurus</Link>
+            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://docs.galactickingdom.io/' onClick={() => setMenuState(false)}>AllBlue Paper - docusaurus</Link>
             <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://twitter.com/GKingdom_io' onClick={() => setMenuState(false)}>Join The Community</Link>
             <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='#faq' onClick={() => setMenuState(false)}>Help</Link>
             <Link className='w-full py-1 cursor-pointer' href='/about' onClick={() => setMenuState(false)}>About Us</Link>
