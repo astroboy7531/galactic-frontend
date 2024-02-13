@@ -113,7 +113,7 @@ export default function Header() {
               </div>
               {whiteFlag ?
                 <div
-                  className='absolute left-0 -bottom-4 z-30 bg-[#fbfcccc4] border-[1px] border-yellow-100 rounded-xl w-[170px] py-1 px-3 flex flex-col gap-2 text-center items-center duration-300'
+                  className='absolute left-0 -bottom-12 z-30 bg-[#fbfcccc4] border-[1px] border-yellow-100 rounded-xl w-[170px] py-1 px-3 flex flex-col gap-2 text-center items-center duration-300'
                   ref={whiteDropDown}
                 >
                   <Link className='w-full text-black border-b cursor-pointer border-b-gray-400 hover:text-blue-500' href='https://galactickingdom.aflip.in/87d7fb8696.html' target='_blank'>Flipbook version</Link>
