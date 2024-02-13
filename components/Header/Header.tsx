@@ -94,7 +94,7 @@ export default function Header() {
           <Link href='/about'>About Us</Link>
         </div>
         <div
-          onClick={() => setMenuState(!menustate)}
+          onClick={() => setMenuState(true)}
           className='relative flex lg:hidden flex-row justify-end items-center text-white border-[1px] rounded-full border-white p-2 cursor-pointer'
         >
           <AiOutlineMenu />
@@ -102,16 +102,30 @@ export default function Header() {
             ref={menuDropdown}
             className={`absolute  top-10 -right-1 bg-[#fbfcccc4] border-[1px] border-white rounded-xl w-[240px] py-2 px-4 flex flex-col text-black text-left items-center duration-300`}
           >
-            <div className='w-full py-1 border-b cursor-pointer border-b-gray-400' onClick={() => { setContactVisible(true); setMenuState(false); }}>
+            <div className='w-full py-1 border-b cursor-pointer border-b-gray-400' onClick={() => { setContactVisible(true); setMenuState(false); setMenuState(!menustate) }}>
               Get Ready
             </div>
-            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://galactickingdom.aflip.in/87d7fb8696.html' onClick={() => setMenuState(false)}>AllBlue Paper</Link>
-            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://docs.galactickingdom.io/' onClick={() => setMenuState(false)}>Documentation</Link>
-            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://twitter.com/GKingdom_io' onClick={() => setMenuState(false)}>Join The Community</Link>
-            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='#faq' onClick={() => setMenuState(false)}>Help</Link>
-            <Link className='w-full py-1 cursor-pointer' href='/about' onClick={() => setMenuState(false)}>About Us</Link>
+            {/* <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://galactickingdom.aflip.in/87d7fb8696.html' onClick={() => setMenuState(false)}>AllBlue Paper</Link>
+            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://docs.galactickingdom.io/' onClick={() => setMenuState(false)}>Documentation</Link> */}
+            <div className='relative w-full py-1 border-b border-b-gray-400'>
+              <div className='cursor-pointer' onClick={() => setWhiteFlag(!whiteFlag)}>
+                WhitePaper
+              </div>
+              {whiteFlag ?
+                <div
+                  className='absolute -left-48 -top-0 z-30 bg-[#fbfcccc4] border-[1px] border-yellow-100 rounded-xl w-[170px] py-1 px-3 flex flex-col gap-2 text-center items-center duration-300'
+                  ref={whiteDropDown}
+                >
+                  <Link className='w-full text-black border-b cursor-pointer border-b-gray-400 hover:text-blue-500' href='https://galactickingdom.aflip.in/87d7fb8696.html' target='_blank'>Flipbook version</Link>
+                  <Link className='text-black cursor-pointer hover:text-blue-500' href='https://docs.galactickingdom.io/' target='_blank'>Documentation version</Link>
+                </div> :
+                <></>}
+            </div>
+            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://twitter.com/GKingdom_io' onClick={() => { setMenuState(false); setMenuState(!menustate); }}>Join The Community</Link>
+            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='#faq' onClick={() => { setMenuState(false); setMenuState(!menustate) }}>Help</Link>
+            <Link className='w-full py-1 cursor-pointer' href='/about' onClick={() => { setMenuState(false); setMenuState(!menustate) }}>About Us</Link>
           </div> : <></>}
-          
+
         </div>
       </div>
       <ContactModal contactVisible={contactVisible} setContactVisible={setContactVisible} />

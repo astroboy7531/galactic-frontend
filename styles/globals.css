@@ -154,7 +154,7 @@ a {
 
 .hero-text {
   text-align: center;
-  -webkit-text-stroke-width: 1;
+  -webkit-text-strokeWidth: 1;
   -webkit-text-stroke-color: #060C1E;
   font-family: "Josefin Sans";
   font-style: normal;
