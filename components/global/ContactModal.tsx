@@ -23,7 +23,7 @@ const ContactInner = styled.div`
     bottom: 0%;
     left: 0%;
     right: 0%;
-    z-index: 999;
+    z-index: 30;
     width: 100vw;
     height: 100vh;
     display: flex;

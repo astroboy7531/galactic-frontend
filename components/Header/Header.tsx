@@ -115,7 +115,7 @@ export default function Header() {
                 >
                   <Link className='w-full text-black border-b cursor-pointer border-b-gray-400 hover:text-blue-500' href='https://galactickingdom.aflip.in/87d7fb8696.html' target='_blank'>Flipbook version</Link>
                   {/* <Link className='text-black cursor-pointer hover:text-blue-500' href='https://docs.galactickingdom.io/' target='_blank'>Documentation version</Link> */}
-                  <div className='text-white cursor-pointer hover:text-blue-500' onClick={() => docsHandler()}>
+                  <div className='text-black cursor-pointer hover:text-blue-500' onClick={() => docsHandler()}>
                     Documentation version
                   </div>
                 </div> :
