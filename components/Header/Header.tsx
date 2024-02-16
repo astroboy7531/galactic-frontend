@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import EmailModal from '../global/EmailModal';
 import BlueModal from '../global/BlueModal';
 import ContactModal from '../global/ContactModal';
+import DocsModal from '../global/DocsModal';
 import { AiOutlineMenu } from 'react-icons/ai'
 
 export default function Header() {
@@ -12,6 +13,7 @@ export default function Header() {
   const [emailVisible, setEmailVisible] = React.useState(false);
   const [blueVisible, setBlueVisible] = React.useState(false);
   const [contactVisible, setContactVisible] = React.useState(false);
+  const [docsVisible, setDocsVisible] = React.useState(false);
   const [menustate, setMenuState] = React.useState(false);
   const [whiteFlag, setWhiteFlag] = React.useState(false);
   const menuDropdown = React.useRef(null);
@@ -26,6 +28,7 @@ export default function Header() {
       setPathName('videos');
     }
   }, [])
+
   React.useEffect(() => {
     function handleClickOutside(event) {
       if (
@@ -46,20 +49,11 @@ export default function Header() {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [menuDropdown, whiteDropDown])
-  // React.useEffect(() => {
-  //   function handleClickOutside(event) {
-  //     if (
-  //       whiteDropDown.current &&
-  //       !whiteDropDown.current.contains(event.target)
-  //     ) {
-  //       setWhiteFlag(false)
-  //     }
-  //   }
-  //   document.addEventListener('mousedown', handleClickOutside)
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleClickOutside)
-  //   }
-  // }, [whiteDropDown])
+
+  const docsHandler = () => {
+    setDocsVisible(true);
+  }
+
   return (
     <div className='absolute z-20 flex justify-center w-full px-6 py-6 font-Josefin'>
       <div className='w-full max-w-[1440px] flex justify-between items-center'>
@@ -85,7 +79,9 @@ export default function Header() {
               >
                 <Link className='w-full text-white border-b-2 border-white cursor-pointer hover:text-blue-500' href='https://galactickingdom.aflip.in/87d7fb8696.html' target='_blank'>Flipbook version</Link>
                 {/* <Link className='text-white cursor-pointer hover:text-blue-500' href='https://docs.galactickingdom.io/' target='_blank'>Documentation version</Link> */}
-                <Link className='text-white cursor-pointer hover:text-blue-500' href='#' target='_blank'>Documentation version</Link>
+                <div className='text-white cursor-pointer hover:text-blue-500' onClick={() => docsHandler()}>
+                  Documentation version
+                </div>
               </div> : <></>}
           </div>
 
@@ -130,6 +126,7 @@ export default function Header() {
         </div>
       </div>
       <ContactModal contactVisible={contactVisible} setContactVisible={setContactVisible} />
+      <DocsModal contactVisible={docsVisible} setContactVisible={setDocsVisible} />
       <EmailModal contactVisible={emailVisible} setContactVisible={setEmailVisible} />
       <BlueModal contactVisible={blueVisible} setContactVisible={setBlueVisible} />
     </div>
