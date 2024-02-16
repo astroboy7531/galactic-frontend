@@ -84,7 +84,8 @@ export default function Header() {
                 ref={whiteDropDown}
               >
                 <Link className='w-full text-white border-b-2 border-white cursor-pointer hover:text-blue-500' href='https://galactickingdom.aflip.in/87d7fb8696.html' target='_blank'>Flipbook version</Link>
-                <Link className='text-white cursor-pointer hover:text-blue-500' href='https://docs.galactickingdom.io/' target='_blank'>Documentation version</Link>
+                {/* <Link className='text-white cursor-pointer hover:text-blue-500' href='https://docs.galactickingdom.io/' target='_blank'>Documentation version</Link> */}
+                <Link className='text-white cursor-pointer hover:text-blue-500' href='#' target='_blank'>Documentation version</Link>
               </div> : <></>}
           </div>
 
