@@ -27,8 +27,7 @@ export default function Faq() {
   const rightFaq = [
     {
       title: 'What does a BTC-backed economy mean and why is it important?',
-      content: `What does a BTC-backed economy mean and why is it important?',
-      content: 'A driving force behind our game economy design is avoiding the pitfalls many other games face when they introduce inflationary tokens that lack gameplay integration and, crucially, lack value backing the token. We wanted to avoid being another web3 game that falls prey to the idea of fiat in their token design, so we designed our game's token, $GB, to be also redeemable for BTC earned by the game's revenue, NFT royalties, and more. The aim is to redirect value generated from the game into the ultimate reserve currency, BTC, and carefully track the minting of new tokens to match the increasing reserves in order to create a sustainable, BTC-backed economy.`
+      content: `A driving force behind our game economy design is avoiding the pitfalls many other games face when they introduce inflationary tokens that lack gameplay integration and, crucially, lack value backing the token. We wanted to avoid being another web3 game that falls prey to the idea of fiat in their token design, so we designed our game's token, $GB, to be also redeemable for BTC earned by the game's revenue, NFT royalties, and more. The aim is to redirect value generated from the game into the ultimate reserve currency, BTC, and carefully track the minting of new tokens to match the increasing reserves in order to create a sustainable, BTC-backed economy.`
     },
 
     {
