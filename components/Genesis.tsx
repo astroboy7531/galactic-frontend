@@ -20,7 +20,7 @@ export default function Genesis() {
             {/* <div className=' w-full flex justify-center items-center overflow-y-visible h-[237px] relative z-10'>
                 <img className='object-center object-cover bottom-[0px] min-w-[140%]' alt='cloud' src='/firstPart/genesisTopCloud.png' />
             </div> */}
-            <div className='mx-auto flex w-full items-center justify-between z-20'>
+            <div className='z-20 flex items-center justify-between w-full mx-auto'>
                 <div className='hidden md:block'>
                     <img
                         src='/secondPart/leftArrow.png'
@@ -28,7 +28,7 @@ export default function Genesis() {
                         className='px-20'
                     />
                 </div>
-                <div className='px-4 text-center text-dark-text font-Josefin text-3xl font-semibold '>
+                <div className='px-4 text-3xl font-semibold text-center text-dark-text font-Josefin '>
                     "Only one life that will soon be past, only ONE PEACE that will ever last"
                 </div>
                 <div className='hidden md:block'>
@@ -41,15 +41,15 @@ export default function Genesis() {
             </div>
             <div className='py-[100px] flex flex-col gap-[82px] items-center w-full max-w-[1100px] mx-auto z-20'>
                 <Fade>
-                    <div className='flex flex-col gap-4 text-dark-text font-Josefin text-center'>
+                    <div className='flex flex-col gap-4 text-center text-dark-text font-Josefin'>
                         <h1 className='text-5xl font-bold'>The Genesis</h1>
-                        <p className='text-2xl font-normal'>Only 10 000 survivors from the Thousand years war remained. They are the elected one. They are the Genesis Conquerors !</p>
+                        <p className='text-2xl font-normal'>Only 10 000 survivors from the Thousand years war remained.</p>
                     </div>
                 </Fade>
                 <Fade bottom>
-                    <div className='flex flex-row lg:flex-col items-center mx-auto px-2 sm:px-0 text-center font-Aclonica text-white'>
-                        <div className='flex flex-col lg:flex-row justify-center gap-12  overflow-visible'>
-                            <div className=' hover:scale-125 relative duration-300 cursor-pointer'
+                    <div className='flex flex-row items-center px-2 mx-auto text-center text-white lg:flex-col sm:px-0 font-Aclonica'>
+                        <div className='flex flex-col justify-center gap-12 overflow-visible lg:flex-row'>
+                            <div className='relative duration-300 cursor-pointer  hover:scale-125'
                                 onMouseEnter={() => setShowDetailsHuman(true)}
                                 onMouseLeave={() => setShowDetailsHuman(false)}
                             >
@@ -61,7 +61,7 @@ export default function Genesis() {
                                     />
                                 </div>
                                 <div className={` ${showDetailsHuman ? ' left-[15%] bottom-[0px] lg:left-0 lg:bottom-[10px] gap-2 ' : 'left-2 bottom-0 lg:bottom-[10px]'} absolute flex flex-col   bg-[#9F7A8D] max-w-[70%] lg:max-w-[50%]  duration-300 px-4 py-2 forc-z`}>
-                                    <div className='flex justify-center items-center gap-2'>
+                                    <div className='flex items-center justify-center gap-2'>
                                         <div className='shrink-0'>
                                             <img
                                                 src='/secondPart/Vector_2.png'
@@ -84,7 +84,7 @@ export default function Genesis() {
                                     </div>
                                 </div>
                             </div>
-                            <div className=' hover:scale-125 relative duration-300 cursor-pointer overflow-visible'
+                            <div className='relative overflow-visible duration-300 cursor-pointer  hover:scale-125'
                                 onMouseEnter={() => setShowDetailsGiant(true)}
                                 onMouseLeave={() => setShowDetailsGiant(false)}
                             >
@@ -94,7 +94,7 @@ export default function Genesis() {
                                     className='object-cover object-center'
                                 />
                                 <div className={`${showDetailsGiant ? 'bottom-0 left-[15%] forc-z' : 'bottom-10 left-24'} duration-300 absolute flex flex-col items-center  giant max-w-[70%] px-4 py-2 `}>
-                                    <div className='flex justify-center items-center gap-2 mx-auto'>
+                                    <div className='flex items-center justify-center gap-2 mx-auto'>
                                         <img
                                             src='/secondPart/Vector_5.png'
                                             alt='vector'
@@ -114,7 +114,7 @@ export default function Genesis() {
                                     </div>
                                 </div>
                             </div>
-                            <div className=' hover:scale-125 relative duration-300 cursor-pointer'
+                            <div className='relative duration-300 cursor-pointer  hover:scale-125'
                                 onMouseEnter={() => setShowDetailsMink(true)}
                                 onMouseLeave={() => setShowDetailsMink(false)}
                             >
@@ -146,7 +146,7 @@ export default function Genesis() {
                             </div>
                         </div>
                         <div className='flex flex-col lg:flex-row justify-center gap-12 relative sm:top-[-40px] z-[-10]'>
-                            <div className=' hover:scale-125 relative duration-300 cursor-pointer '
+                            <div className='relative duration-300 cursor-pointer  hover:scale-125'
                                 onMouseEnter={() => setShowDetailsLunar(true)}
                                 onMouseLeave={() => setShowDetailsLunar(false)}
                             >
@@ -176,7 +176,7 @@ export default function Genesis() {
                                     </div>
                                 </div>
                             </div>
-                            <div className=' hover:scale-125 relative duration-300 cursor-pointer'
+                            <div className='relative duration-300 cursor-pointer  hover:scale-125'
                                 onMouseEnter={() => setShowDetailsFish(true)}
                                 onMouseLeave={() => setShowDetailsFish(false)}
                             >
@@ -186,7 +186,7 @@ export default function Genesis() {
                                     className='object-cover object-center'
                                 />
                                 <div className={`${showDetailsFish ? 'right-[15%] lg:right-0 gap-2' : 'right-[0px]'} absolute flex flex-col items-center bottom-[1px] bg-[#58787E] max-w-[70%] lg:max-w-[50%]  duration-300 px-4 py-2 forc-z `}>
-                                    <div className='flex justify-center items-center gap-2'>
+                                    <div className='flex items-center justify-center gap-2'>
                                         <img
                                             src='/secondPart/Vector_4.png'
                                             alt='vector'
