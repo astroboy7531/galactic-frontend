@@ -8,7 +8,7 @@ type AccordionProps = {
 const FaqComp = ({ title, content }: AccordionProps) => {
     const [isOpened, setOpened] = useState<boolean>(false)
     const [height, setHeight] = useState<string>("0px")
-    const contentElement = useRef(1)
+    const contentElement = useRef(null)
 
     const HandleOpening = () => {
         setOpened(!isOpened)
