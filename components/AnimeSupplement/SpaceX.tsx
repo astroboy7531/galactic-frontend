@@ -22,7 +22,7 @@ const SpaceX: React.FC<Props> = ({ show }) => {
     }, [show])
     return (
         <>
-            <div className={`${trigger ? (flag ? 'space-shake-anime' : 'space-move-anime') : ''}`}>
+            <div className={`${trigger ? (flag ? 'space-shake-anime' : 'space-move-anim') : ''}`}>
                 <img
                     src='/explorer/space.png'
                     alt='space'

@@ -22,14 +22,14 @@ const AudioPlayerComp: React.FC<LayoutProps> = ({ children }) => {
   }, [currentTrack]); // Trigger on currentTrack change
 
   const handleClickNext = () => {
-    console.log('click next');
+    // console.log('click next');
     setTrackIndex((currentTrack) =>
       currentTrack < audios.length - 1 ? currentTrack + 1 : 0
     );
   };
 
   const handleEnd = () => {
-    console.log('end');
+    // console.log('end');
     setTrackIndex((currentTrack) =>
       currentTrack < audios.length - 1 ? currentTrack + 1 : 0
     );
@@ -37,13 +37,13 @@ const AudioPlayerComp: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
-      <div className='z-[99] fixed bottom-10 right-10 px-2 py-[3px] border-[#ffffff66] border rounded-md'>
+      <div className='z-[99] fixed bottom-10 right-10 px-2 py-[3px] border-[#333] border-2 rounded-md'>
         <AudioPlayer
           ref={audioPlayerRef}
           src={audios[currentTrack]}
           volume={0.5}
           showSkipControls
-          autoPlay={true} // Set autoPlay to false
+          autoPlay={false} // Set autoPlay to false
           showJumpControls={false}
           onClickNext={handleClickNext}
           showDownloadProgress={false}

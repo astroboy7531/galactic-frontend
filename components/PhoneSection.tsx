@@ -2,13 +2,13 @@ import React from 'react'
 
 export default function PhoneSection() {
     return (
-        <div className='w-full flex flex-col bg-cover bg-center bg-[#F0EBE5] border-0 relative top-[-2px]'>
+        <div className='w-full flex flex-col bg-cover bg-center bg-[#F0EBE5] dark:bg-dark border-0 relative top-[-2px]'>
             <div className='w-full flex flex-col overflow-y-visible absolute z-10'>
                 <div>
                     <img className=' object-center object-cover min-w-[100%] bottom-20 relative' alt='cloud' src='/phoneSection/phoneCloud.png' />
                 </div>
             </div>
-            <div className='flex flex-col items-center gap-3 justify-center  sm:flex-row pb-16 z-20  pt-40'>
+            <div className='flex flex-col items-center gap-3 justify-center  sm:flex-row pb-16 z-10  pt-40'>
                 <div>
                     <img
                         src='/phoneSection/googleStore.png'
@@ -39,14 +39,14 @@ export default function PhoneSection() {
                         className='object-cover object-center'
                     />
                 </div>
-                <div className=' z-20'>
+                <div className=' z-10'>
                     <img
                         src='/phoneSection/phoneGroup.png'
                         alt='phone Group'
                         className='object-cover object-center'
                     />
                 </div>
-                <div className=' z-20'>
+                <div className=' z-10'>
                     <img
                         src='/phoneSection/human.png'
                         alt='phone Group'

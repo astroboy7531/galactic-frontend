@@ -1,137 +1,227 @@
-import Link from 'next/link'
-import React from 'react'
-import { useRouter } from 'next/router'
-import EmailModal from '../global/EmailModal';
-import BlueModal from '../global/BlueModal';
-import ContactModal from '../global/ContactModal';
-import DocsModal from '../global/DocsModal';
-import { AiOutlineMenu } from 'react-icons/ai'
+import Link from "next/link";
+import React from "react";
+import { useRouter } from "next/router";
+import EmailModal from "../global/EmailModal";
+import BlueModal from "../global/BlueModal";
+import ContactModal from "../global/ContactModal";
+import { AiOutlineMenu } from "react-icons/ai";
+import ToggleButton from "../ToggleButton";
+import { Link as NavLink } from "react-scroll";
+import { useScroll, motion, useTransform } from "framer-motion";
+import DropdownMenu from "../DropdownMenu";
+import { useTheme } from "next-themes";
+import AnimatedHamburger from "../AnimatedHamburgerButton";
 
 export default function Header() {
   const router = useRouter();
-  const [pathName, setPathName] = React.useState('');
+  const [pathName, setPathName] = React.useState("");
   const [emailVisible, setEmailVisible] = React.useState(false);
   const [blueVisible, setBlueVisible] = React.useState(false);
   const [contactVisible, setContactVisible] = React.useState(false);
-  const [docsVisible, setDocsVisible] = React.useState(false);
   const [menustate, setMenuState] = React.useState(false);
-  const [whiteFlag, setWhiteFlag] = React.useState(false);
   const menuDropdown = React.useRef(null);
-  const whiteDropDown = React.useRef(null);
 
   React.useEffect(() => {
     if (router.pathname == "/") {
-      setPathName('shit');
+      setPathName("shit");
     } else if (router.pathname == "/tweets") {
-      setPathName('tweets');
+      setPathName("tweets");
     } else if (router.pathname == "/videos") {
-      setPathName('videos');
+      setPathName("videos");
     }
-  }, [])
-
+  }, []);
   React.useEffect(() => {
     function handleClickOutside(event) {
       if (
         menuDropdown.current &&
         !menuDropdown.current.contains(event.target)
       ) {
-        setMenuState(false)
-      }
-      if (
-        whiteDropDown.current &&
-        !whiteDropDown.current.contains(event.target)
-      ) {
-        setWhiteFlag(false)
+        setMenuState(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [menuDropdown, whiteDropDown])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuDropdown]);
 
-  const docsHandler = () => {
-    setDocsVisible(true);
+  const [down, setDown] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleShadow = () => {
+      if (window.scrollY >= 1500) {
+        setDown(true);
+      }
+      if (window.scrollY <= 1500) {
+        setDown(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleShadow);
+  }, []);
+
+  React.useEffect(() => {
+    if (menustate) {
+   // Apply a CSS class to the body element
+   document.body.classList.add('no-scroll');
+  } else {
+    // Remove the CSS class
+    document.body.classList.remove('no-scroll');
   }
+  }, []);
+
+  const { resolvedTheme } = useTheme();
 
   return (
-    <div className='absolute z-20 flex justify-center w-full px-6 py-6 font-Josefin'>
-      <div className='w-full max-w-[1440px] flex justify-between items-center'>
-        <Link href='/'>
+    <div
+      id="top"
+      className="w-full py-6 px-6 flex justify-center z-20 font-Josefin absolute"
+    >
+      <div
+        className={`${
+          menustate ? "fixed top-0 w-screen h-screen bg-black/50" : ""
+        }`}
+      />
+
+      {down && (
+        <NavLink
+          activeClass="active"
+          to="top"
+          spy={true}
+          smooth={true}
+          offset={-100}
+          duration={2000}
+          className="fixed bottom-24 right-10 border-2 cursor-pointer rounded-md z-50 bg-gray-900 border-[#333]"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="#673b23"
+            className="w-8 h-8 p-1"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m4.5 18.75 7.5-7.5 7.5 7.5"
+            />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="m4.5 12.75 7.5-7.5 7.5 7.5"
+            />
+          </svg>
+        </NavLink>
+      )}
+
+      <div className="w-full max-w-[1440px] flex justify-between items-center">
+        <Link href="/">
           <img
-            src='/Logo/Big.png'
-            alt='logo'
-            className='object-cover object-center'
+            src="/Logo/Big.png"
+            alt="logo"
+            className="object-cover object-center max-sm:scale-75 max-sm:absolute max-sm:left-0 max-sm:top-6"
           />
         </Link>
-        <div className='hidden lg:flex items-center justify-center gap-10 font-Josefin text-white font-[500]'>
-          <div className='cursor-pointer' onClick={() => setContactVisible(true)}>
-            Get Ready
+        <div className="hidden lg:flex items-center justify-center gap-10 font-Josefin text-white font-[500]">
+          <div
+            className="cursor-pointer"
+            onClick={() => setContactVisible(true)}
+          >
+            Contact us
           </div>
-          <div className='relative'>
-            <div className='cursor-pointer' onClick={() => setWhiteFlag(flag => !flag)}>
-              WhitePaper
-            </div>
-            {whiteFlag ?
-              <div
-                className='absolute left-1/2 -translate-x-1/2 top-6 z-30 bg-[#fbfcccc4] border-[1px] border-yellow-100 rounded-xl w-[270px] py-1 mt-2 px-3 flex flex-col gap-2 text-black text-center items-center duration-300'
-                ref={whiteDropDown}
-              >
-                <Link className='w-full text-white border-b-2 border-white cursor-pointer hover:text-blue-500' href='https://galactickingdom.aflip.in/87d7fb8696.html' target='_blank'>Flipbook version</Link>
-                {/* <Link className='text-white cursor-pointer hover:text-blue-500' href='https://docs.galactickingdom.io/' target='_blank'>Documentation version</Link> */}
-                <div className='text-white cursor-pointer hover:text-blue-500' onClick={() => docsHandler()}>
-                  Documentation version
-                </div>
-              </div> : <></>}
+          <div>
+            <DropdownMenu />
           </div>
-
-          {/* <Link className='cursor-pointer ' href='https://galactickingdom.aflip.in/87d7fb8696.html'>AllBlue Paper</Link> */}
-          <Link href='https://twitter.com/GKingdom_io'>Join The Community</Link>
-          <Link href='#faq'>Help</Link>
-          <Link href='/about'>About Us</Link>
+          <Link href="https://twitter.com/GKingdom_io">Join The Community</Link>
+          <div className="cursor-pointer">
+            <NavLink
+              activeClass="active"
+              to="faq-section"
+              spy={true}
+              smooth={true}
+              offset={100}
+              duration={2000}
+              // href='#faq-section'
+            >
+              Help
+            </NavLink>
+          </div>
+          <Link href="/about">About Us</Link>
+          <ToggleButton />
         </div>
         <div
-          onClick={() => setMenuState(true)}
-          className='relative flex lg:hidden flex-row justify-end items-center text-white border-[1px] rounded-full border-white p-2 cursor-pointer'
+          onClick={() => setMenuState(!menustate)}
+          className="relative flex lg:hidden flex-row justify-end items-center text-white boder-[1px] rounded-full border-white p-2 cursor-pointer"
         >
-          <AiOutlineMenu />
-          {menustate ? <div
+          <AiOutlineMenu size={25} />
+          {/* <AnimatedHamburger menustate={menustate} /> */}
+          <div
             ref={menuDropdown}
-            className={`absolute  top-10 -right-1 bg-[#fbfcccc4] border-[1px] border-white rounded-xl w-[240px] py-2 px-4 flex flex-col text-black text-left items-center duration-300`}
+            className={`${
+              menustate ? "block" : "hidden"
+            } absolute  top-12 right-0 bg-dark border-[1px] border-white rounded-xl w-[200px] py-3 flex flex-col text-white text-center items-center duration-300`}
           >
-            <div className='w-full py-1 border-b cursor-pointer border-b-gray-400' onClick={() => { setContactVisible(true); setMenuState(false); setMenuState(!menustate) }}>
-              Get Ready
+            <div
+              className="cursor-pointer border-b border-b-gray-800 py-3 w-full"
+              onClick={() => {
+                setContactVisible(true);
+                setMenuState(false);
+              }}
+            >
+              Contact us
             </div>
-            {/* <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://galactickingdom.aflip.in/87d7fb8696.html' onClick={() => setMenuState(false)}>AllBlue Paper</Link>
-            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://docs.galactickingdom.io/' onClick={() => setMenuState(false)}>Documentation</Link> */}
-            <div className='w-full py-1 border-b border-b-gray-400'>
-              <div className='cursor-pointer' onClick={() => setWhiteFlag(!whiteFlag)}>
-                WhitePaper
-              </div>
-              {whiteFlag ?
-                <div
-                  className='absolute left-0 -bottom-20 z-30 bg-[#fbfcccc4] border-[1px] border-yellow-100 rounded-xl w-[240px] py-1 px-3 flex flex-col gap-2 text-center items-center duration-300'
-                  ref={whiteDropDown}
-                >
-                  <Link className='w-full text-black border-b cursor-pointer border-b-gray-400 hover:text-blue-500' href='https://galactickingdom.aflip.in/87d7fb8696.html' target='_blank'>Flipbook version</Link>
-                  {/* <Link className='text-black cursor-pointer hover:text-blue-500' href='https://docs.galactickingdom.io/' target='_blank'>Documentation version</Link> */}
-                  <div className='text-black cursor-pointer hover:text-blue-500' onClick={() => docsHandler()}>
-                    Documentation version
-                  </div>
-                </div> :
-                <></>}
+            {/* <Link className='cursor-pointer border-b border-b-gray-400 py-3 w-full' href='https://galactickingdom.aflip.in/87d7fb8696.html' onClick={() => setMenuState(false)}>AllBlue Paper</Link> */}
+            <div className="py-3 border-b-[1px] border-b-gray-800 w-full">
+              <DropdownMenu />
             </div>
-            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='https://twitter.com/GKingdom_io' onClick={() => { setMenuState(false); setMenuState(!menustate); }}>Join The Community</Link>
-            <Link className='w-full py-1 border-b cursor-pointer border-b-gray-400' href='#faq' onClick={() => { setMenuState(false); setMenuState(!menustate) }}>Help</Link>
-            <Link className='w-full py-1 cursor-pointer' href='/about' onClick={() => { setMenuState(false); setMenuState(!menustate) }}>About Us</Link>
-          </div> : <></>}
-
+            <Link
+              className="cursor-pointer border-b border-b-gray-800 py-3 w-full"
+              href="https://twitter.com/GKingdom_io"
+              onClick={() => setMenuState(false)}
+            >
+              Join The Community
+            </Link>
+            <div className="cursor-pointer w-full border-b-[1px] border-b-gray-800 py-3">
+              <NavLink
+                activeClass="active"
+                to="faq-section"
+                spy={true}
+                smooth={true}
+                offset={100}
+                duration={2000}
+                className="cursor-pointer py-3 w-full"
+                onClick={() => setMenuState(false)}
+              >
+                Help
+              </NavLink>
+            </div>
+            <Link
+              className="cursor-pointer w-full border-b-[1px] border-b-gray-800 py-3"
+              href="/about"
+              onClick={() => setMenuState(false)}
+            >
+              About Us
+            </Link>
+            <div className="py-2 flex items-center gap-4">
+              <span className="mt-2 capitalize">{resolvedTheme}</span>
+              <ToggleButton />
+            </div>
+          </div>
         </div>
       </div>
-      <ContactModal contactVisible={contactVisible} setContactVisible={setContactVisible} />
-      <DocsModal contactVisible={docsVisible} setContactVisible={setDocsVisible} />
-      <EmailModal contactVisible={emailVisible} setContactVisible={setEmailVisible} />
-      <BlueModal contactVisible={blueVisible} setContactVisible={setBlueVisible} />
+      <ContactModal
+        contactVisible={contactVisible}
+        setContactVisible={setContactVisible}
+      />
+      <EmailModal
+        contactVisible={emailVisible}
+        setContactVisible={setEmailVisible}
+      />
+      <BlueModal
+        contactVisible={blueVisible}
+        setContactVisible={setBlueVisible}
+      />
     </div>
-  )
+  );
 }

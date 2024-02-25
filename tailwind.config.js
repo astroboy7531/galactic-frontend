@@ -8,9 +8,6 @@ module.exports = {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
-    // screens: {
-    //   'cus-lg': '1150px'
-    // },
     fontFamily: {
       boldOff: ['OffBit-Bold', ...defaultTheme.fontFamily.sans],
       regularOff: ['OffBit-Regular', ...defaultTheme.fontFamily.serif],
@@ -42,7 +39,7 @@ module.exports = {
       },
     },
     colors: {
-      "dark": "#050B1D",
+      "dark": "#041125",
       "dark-text": "#1E1E1E",
       "blue-thick": "#000AFF",
       "green-main": "#1ED760",
@@ -51,5 +48,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('flowbite/plugin')
-  ]
+  ],
+  darkMode: 'class',
 }

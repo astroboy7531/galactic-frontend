@@ -1,28 +1,42 @@
-import React from 'react'
-
-interface Props {
-    title: string;
-    content: string;
+import React, { useState, useRef } from "react"
+// import ChevronClosed from "../icons/ChevronClosed.svg"
+// import ChevronOpen from "../icons/ChevronOpen.svg"
+type AccordionProps = {
+    title: string
+    content: string
 }
-const FaqComp: React.FC<Props> = ({ title, content }) => {
-    const [isOpen, setIsOpen] = React.useState(false);
-    return (
-        <div className={`${isOpen ? 'border-[3px] gradient-border bg-[#F0EBE5]' : 'border border-dark-text bg-[#fefefe]'}  w-full p-4 flex rounded-lg font-Josefin text-dark-text`}>
-            <div className='w-full flex flex-col  h-full'>
-                <div className='flex justify-between items-center w-full overflow-y-hidden relative cursor-pointer'  onClick={() => setIsOpen(!isOpen)}>
-                    <div className='text-sm md:text-base pr-6 font-bold'>{title}</div>
-                    <div className='text-3xl cursor-pointer font-bold absolute top-[-7px] right-[0px] z-10'>
-                        {isOpen ? '-' : '+'}
-                    </div>
-                </div>
-                {/* {isOpen && (<div className='text-xs md:text-sm font-normal pt-2 pr-6 duration-300'>{content}</div>)} */}
-                <div className={`${isOpen ? 'py-[16px]' : ''}  pr-6 duration-1000`}>
-                    <span className={`${isOpen ? 'flex h-full' : 'hidden'} text-xs md:text-sm font-normal`}>{content}</span>
-                </div>
+const FaqComp = ({ title, content }: AccordionProps) => {
+    const [isOpened, setOpened] = useState<boolean>(false)
+    const [height, setHeight] = useState<string>("0px")
+    const contentElement = useRef(1)
 
+    const HandleOpening = () => {
+        setOpened(!isOpened)
+        setHeight(!isOpened ? `${contentElement.current.scrollHeight}px` : "0px")
+    }
+    return (
+        <div onClick={HandleOpening} className=" mb-4 w-full cursor-pointer border-[3px] dark:bg-gray-200 gradient-border rounded-xl">
+            <div className={" h-[4.5rem] max-sm:h-14 p-8 flex justify-between items-center text-black rounded-xl"}>
+                <h4 className="font-bold">{title}</h4>
+                {isOpened ? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-6 h-6 rotate-45 duration-300 transition-all">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+
+                    : <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-6 h-6 duration-300 transition-all">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+
+                }
+            </div>
+            <div
+                ref={contentElement}
+                style={{ height: height }}
+                className="bg-white/10 text-black overflow-hidden transition-all duration-300 rounded-b-xl"
+            >
+                <p className="p-4">{content}</p>
             </div>
         </div>
     )
 }
 
-export default FaqComp;
+export default FaqComp
