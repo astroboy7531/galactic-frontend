@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header/Header'
-import Page from '@/components/Page'
+import Page from '@/components/page'
 import TeamComment from '@/components/team/TeamComment'
 import TeamContent from '@/components/team/TeamContent'
 import React from 'react'

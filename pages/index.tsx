@@ -13,7 +13,7 @@ import Explorer from "@/components/Explorer";
 import RoadMap from "@/components/RoadMap";
 import MovingImage from "@/components/MovingImage";
 import LoadingAnimation from "@/components/LoadingAnimation";
-import Page from "@/components/Page";
+import Page from "@/components/page";
 import { useScroll } from "framer-motion";
 
 export default function Home() {
