@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer'
 import Header from '@/components/Header/Header'
-import Page from '@/components/page'
+import Page from '@/components/Page'
 import RealComment from '@/components/real/RealComment'
 import RealContent from '@/components/real/RealContent'
 import React from 'react'

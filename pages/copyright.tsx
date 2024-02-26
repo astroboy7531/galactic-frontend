@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header/Header";
-import Page from "@/components/page";
+import Page from "@/components/Page";
 import PrivacyComment from "@/components/privacy/PrivacyComment";
 import PrivacyContent from "@/components/privacy/PrivacyContent";
 import React from "react";

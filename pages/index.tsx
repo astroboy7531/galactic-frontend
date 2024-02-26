@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero";
@@ -12,9 +12,7 @@ import Faq from "@/components/Faq";
 import Explorer from "@/components/Explorer";
 import RoadMap from "@/components/RoadMap";
 import MovingImage from "@/components/MovingImage";
-import LoadingAnimation from "@/components/LoadingAnimation";
-import Page from "@/components/page";
-import { useScroll } from "framer-motion";
+import Page from "@/components/Page";
 
 export default function Home() {
   React.useEffect(() => {
@@ -32,11 +30,11 @@ export default function Home() {
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     setCurrTheme(storedTheme);
-  }, []); // Empty dependency array means this effect runs once on mount
+  }, []); 
 
   useEffect(() => {
-    console.log(currTheme); // Log the updated theme here
-  }, [currTheme]); // Add currTheme to the dependency array
+    console.log(currTheme);
+  }, [currTheme]);
 
   return (
     <>
@@ -53,10 +51,6 @@ export default function Home() {
             <LeftBall />
             <RightBall />
             <Hero />
-            {/* <div className=' w-full flex justify-center items-center overflow-y-visible h-[30px] md:h-[87px] relative z-10'>
-              <img className='object-top object-cover bottom-[0px] min-w-[100%] h-[200px] md:h-[400px] xl:h-[600px]' alt='cloud' src='/firstPart/genesisTopCloud.png' />
-            </div> */}
-            {/* <MovingImage rotation={false as boolean} /> */}
             <MovingImage rotation={false as boolean} />
           </div>
           <Genesis />

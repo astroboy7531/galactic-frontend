@@ -7,10 +7,8 @@ import ContactModal from "../global/ContactModal";
 import { AiOutlineMenu } from "react-icons/ai";
 import ToggleButton from "../ToggleButton";
 import { Link as NavLink } from "react-scroll";
-import { useScroll, motion, useTransform } from "framer-motion";
 import DropdownMenu from "../DropdownMenu";
 import { useTheme } from "next-themes";
-import AnimatedHamburger from "../AnimatedHamburgerButton";
 
 export default function Header() {
   const router = useRouter();

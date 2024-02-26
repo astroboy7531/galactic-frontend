@@ -48,7 +48,7 @@ export default function Faq() {
     },
   ]
   return (
-    <div id='faq-section' className='w-full flex items-center justify-center bg-[#F0EBE5] dark:bg-[#041125] relative'>
+    <div id='faq-section' className='w-full flex items-center pb-20 justify-center bg-[#F0EBE5] dark:bg-[#041125] relative'>
       <div className='absolute transform -translate-y-1/3 left-0 top-0 scale-150'>
         <img
           src='/right_decor.png'

@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import ContactModal from "./global/ContactModal";
 import { useTheme } from "next-themes";
 
 const StaggeredDropDown = () => {
@@ -28,7 +27,6 @@ const StaggeredDropDown = () => {
           style={{ originY: "top", translateX: "-50%" }}
           className="flex flex-col gap-2 p-2 rounded-lg bg-[#c2c5a4] dark:bg-dark shadow-xl absolute top-[120%] left-[50%] w-60 mt-4 border overflow-hidden"
         >
-          {/* <Option setOpen={setOpen} text="Jedi Studios" /> */}
           <Option
             setOpen={setOpen}
             link="https://galactickingdom.aflip.in/87d7fb8696.html"
@@ -36,7 +34,6 @@ const StaggeredDropDown = () => {
           />
           <Option
             setOpen={setOpen}
-            // link="https://www.amazon.in"
             text="Documentation version"
           />
         </motion.ul>
