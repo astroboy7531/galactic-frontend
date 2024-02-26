@@ -12,7 +12,7 @@ import Faq from "@/components/Faq";
 import Explorer from "@/components/Explorer";
 import RoadMap from "@/components/RoadMap";
 import MovingImage from "@/components/MovingImage";
-import Page from "@/components/Page";
+import Page from "@/components/page";
 
 export default function Home() {
   React.useEffect(() => {
