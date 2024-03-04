@@ -32,7 +32,7 @@ const FaqComp = ({ title, content }: AccordionProps) => {
             viewBox="0 0 24 24"
             strokeWidth={3}
             stroke="currentColor"
-            className="w-6 h-6 rotate-45 duration-300 transition-all"
+            className="w-6 h-6 transition-all duration-300 rotate-45"
           >
             <path
               strokeLinecap="round"
@@ -47,7 +47,7 @@ const FaqComp = ({ title, content }: AccordionProps) => {
             viewBox="0 0 24 24"
             strokeWidth={3}
             stroke="currentColor"
-            className="w-6 h-6 duration-300 transition-all"
+            className="w-6 h-6 transition-all duration-300"
           >
             <path
               strokeLinecap="round"
@@ -60,7 +60,7 @@ const FaqComp = ({ title, content }: AccordionProps) => {
       <div
         ref={contentElement}
         style={{ height: height }}
-        className="bg-white/10 text-black overflow-hidden transition-all duration-300 rounded-b-xl"
+        className="overflow-hidden text-black transition-all duration-300 bg-white/10 blur-sm rounded-b-xl"
       >
         <p className="p-4">{content}</p>
       </div>
