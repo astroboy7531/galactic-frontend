@@ -10,7 +10,8 @@ export default function Genesis() {
   const router = useRouter();
   const handleRace = (name: string) => {
     setRace(name);
-    router.push("/race");
+    // TODO remove the content
+    // router.push("/race");
   };
   const [showDetailsHuman, setShowDetailsHuman] = React.useState(false);
   const [showDetailsGiant, setShowDetailsGiant] = React.useState(false);
